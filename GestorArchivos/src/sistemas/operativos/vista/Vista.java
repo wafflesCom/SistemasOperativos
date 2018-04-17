@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class Vista extends javax.swing.JFrame {
 
     DefaultTableModel modelo;
-
+    int tmp;
     /**
      * Creates new form Vista
      */
@@ -24,6 +24,7 @@ public class Vista extends javax.swing.JFrame {
         String datoss[][] = {};
         modelo = new DefaultTableModel(datoss, cabecera);
         jTable1.setModel(modelo);
+        
     }
 
     /**
@@ -70,8 +71,8 @@ public class Vista extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
-                .addGap(13, 13, 13))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,9 +86,7 @@ public class Vista extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,16 +97,32 @@ public class Vista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTable1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyPressed
-        if (evt.getKeyCode() == 97) {
+        if (evt.getKeyCode() == 96) {
             proceso(evt.getKeyCode());
         }
-        if (evt.getKeyCode() == 98) {
+        if (evt.getKeyCode() == 97) {
             proceso(evt.getKeyCode());
-            System.out.println(evt.getKeyCode());
         }
         if (evt.getKeyCode() == 27) {
             this.dispose();
         }
+        if (evt.getKeyCode() == 98) {
+            proceso(evt.getKeyCode());
+        }
+        if (evt.getKeyCode() == 99) {
+            proceso(evt.getKeyCode());
+        }
+        if (evt.getKeyCode() == 100) {
+            proceso(evt.getKeyCode());
+        }
+        if (evt.getKeyCode() == 101) {
+            proceso(evt.getKeyCode());
+        }
+        if (evt.getKeyCode() == 10) {
+            borrar();
+            modelo.isCellEditable(0, 1);
+        }
+      
 
     }//GEN-LAST:event_jTable1KeyPressed
 
@@ -117,27 +132,66 @@ public class Vista extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTable1MouseClicked
 
+    public void borrar(){
+        System.out.println(tmp);
+        System.out.println(modelo.getValueAt(0, 2));
+        modelo.removeRow(tmp);
+        //tmp++;
+    }
     public void delay_Seg() {
         try {
             Thread.sleep(1000);
+            
         } catch (Exception e) {
         }
     }
 
     private void proceso(int i) {
-        if (i == 97) {
+        int tmp = 0;
+        if (i == 96) {
             int peso = (int) (Math.random() * 100) + 1;
             int id = (int) (Math.random() * 100000) + 100;
             int proceso = i;
             Object datos[] = {id, peso, proceso};
             modelo.addRow(datos);
         }
-        if (i == 98) {
-            int peso = (int) (Math.random() * 200) + 1;
-            int id = (int) (Math.random() * 200000) + 200;
+        if (i == 97) {
+            int peso = (int) (Math.random() * 201) + 100;
+            int id = (int) (Math.random() * 200000) + 2000;
             int proceso = i;
             Object datos[] = {id, peso, proceso};
+            modelo.addRow(datos);
         }
+        if (i == 98) {
+            int peso = (int) (Math.random() * 301) + 200;
+            int id = (int) (Math.random() * 300000) + 200;
+            int proceso = i;
+            Object datos[] = {id, peso, proceso};
+            modelo.addRow(datos);
+        }
+         if (i == 99) {
+            int peso = (int) (Math.random() * 401) + 300;
+            int id = (int) (Math.random() * 400000) + 400;
+            int proceso = i;
+            Object datos[] = {id, peso, proceso};
+            modelo.addRow(datos);
+        }
+          if (i == 100) {
+            int peso = (int) (Math.random() * 501) + 400;
+            int id = (int) (Math.random() * 500000) + 500;
+            int proceso = i;
+            Object datos[] = {id, peso, proceso};
+            modelo.addRow(datos);
+        }
+          if (i == 101) {
+            int peso = (int) (Math.random() * 601) + 500;
+            int id = (int) (Math.random() * 600000) + 600;
+            int proceso = i;
+            Object datos[] = {id, peso, proceso};
+            modelo.addRow(datos);
+        } 
+          
+        
 
     }
 
@@ -172,7 +226,7 @@ public class Vista extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Vista().setVisible(true);
-
+                
             }
         });
 
